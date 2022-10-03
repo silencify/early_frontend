@@ -1,5 +1,2 @@
-import Button from './button';
-
-export {
-    Button
-}
+export * from './basic';
+export * from './forms';
