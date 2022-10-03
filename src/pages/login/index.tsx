@@ -6,6 +6,7 @@ import {useNavigate} from 'react-router-dom';
 import {Grid} from '@mui/material';
 import { Form, Field } from 'react-final-form';
 import { composeValidators, email, required } from 'utils/Validators';
+import WLoadingButton from 'components/basic/loadingButton';
 
 const Login = (): JSX.Element => {
     const dispatch = useDispatch();
@@ -62,9 +63,10 @@ const Login = (): JSX.Element => {
                             </Grid>
 
                             <Grid item xs={12}>
-                                <WButton variant='contained' fullWidth type='submit'>Login</WButton>
+                                <WLoadingButton loading={loading} variant='contained' fullWidth type='submit'>
+                                    Login
+                                </WLoadingButton>
                             </Grid>
-                            { loading && <div>Loggin in....</div>}
                         </Grid>
                     </form>
                 )}
