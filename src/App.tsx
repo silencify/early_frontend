@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css';
 import {publicRoutes, restrictedRoutes} from 'routes';
@@ -22,7 +22,11 @@ function App() {
             <Routes>
                 {
                     publicRoutes.map(({path, Component}: PublicRoutes) => {
-                       return <Route key={path} path={path} element={<Component />} />
+                       return <Route key={path} path={path} element={
+                           <Suspense fallback={<div>Loading...</div>}>
+                               <Component />
+                           </Suspense>
+                       } />
                     })
                 }
             </Routes>
@@ -33,7 +37,11 @@ function App() {
             <Routes>
                 {
                     restrictedRoutes.map(({path, permission, Component}: RestrictedRoutes) => {
-                       return <Route key={path} path={path} element={<PermittedRoutes permission={permission} Component={Component}/>} />
+                       return <Route key={path} path={path} element={
+                           <Suspense fallback={<div>Loading...</div>}>
+                               <PermittedRoutes permission={permission} Component={Component}/>
+                           </Suspense>
+                       } />
                     }) 
                 }
             </Routes>
