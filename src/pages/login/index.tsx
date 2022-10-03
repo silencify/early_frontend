@@ -44,7 +44,7 @@ const Login = (): JSX.Element => {
                     </Grid>
 
                     <Grid item xs={12}>
-                        <WButton variant='contained' fullWidth>Login</WButton>
+                        <WButton variant='contained' fullWidth type='submit'>Login</WButton>
                     </Grid>
                     { loading && <div>Loggin in....</div>}
                 </Grid>
