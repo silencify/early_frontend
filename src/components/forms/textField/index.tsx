@@ -1,8 +1,24 @@
-import { TextField, TextFieldProps } from '@mui/material';
+import { TextFieldProps } from './interface/Textfield.interface';
+import { TextField } from '@mui/material';
 
-const WTextField = ({label, type='text', required=false, ...rest}: TextFieldProps ): JSX.Element => {
+const WTextField = ({input, label, type = 'text', meta: { touched, error }, ...custom}: TextFieldProps): JSX.Element => {
+    const isError = (): boolean => {
+        if (touched && error){
+            return true
+        }
+
+        return false
+    }
+
     return (
-       <TextField label={label} variant='outlined' type={type} required={required} {...rest}/> 
+        <TextField
+            error={isError()}
+            label={label}
+            type={type}
+            helperText={touched && error}
+            {...input}
+            {...custom}
+        />
     )
 }
 
