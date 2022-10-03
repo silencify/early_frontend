@@ -1,10 +1,10 @@
 import { FormEvent } from 'react';
-import {Button} from 'components';
-import Input from 'components/input';
+import { WButton, WTextField, WTypography } from 'components';
 import LoginWrapper from './index.style';
 import actions from './store/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import {useNavigate} from 'react-router-dom';
+import {Grid} from '@mui/material';
 
 const Login = (): JSX.Element => {
     const dispatch = useDispatch();
@@ -31,10 +31,23 @@ const Login = (): JSX.Element => {
     return (
         <LoginWrapper>
             <form onSubmit={handleFormSubmit}>
-                <Input type='text' label='Username' />
-                <Input type='text' label='Password' />
-                <Button text='Submit' />
-                { loading && <div>Loggin in....</div>}
+                <Grid container spacing={2}>
+                    <Grid item xs={12}>
+                        <WTypography variant='h5'>Login</WTypography>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <WTextField label='Email' fullWidth required/>
+                    </Grid>
+        
+                    <Grid item xs={12}>
+                        <WTextField type='password' label='Password' fullWidth required/>
+                    </Grid>
+
+                    <Grid item xs={12}>
+                        <WButton variant='contained' fullWidth>Login</WButton>
+                    </Grid>
+                    { loading && <div>Loggin in....</div>}
+                </Grid>
             </form>
         </LoginWrapper>
     )

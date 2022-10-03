@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button } from 'components';
+import { WButton } from 'components';
 import { useNavigate } from 'react-router-dom';
 import MainLayout from 'layout/MainLayout'
 
@@ -22,7 +22,7 @@ const Dashboard = (): JSX.Element => {
         <MainLayout>
             <>
                 <h1>I am dashboard</h1>
-                <Button text='Log out' onClick={handleLogout}/>
+                <WButton onClick={handleLogout}>Log out</WButton>
                 { loading && <div>Please wait for log out.....</div> }
             </>
         </MainLayout>
