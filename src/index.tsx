@@ -4,6 +4,8 @@ import App from './App';
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux'
 import store from 'store';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './theme';
 //import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -12,9 +14,11 @@ const root = ReactDOM.createRoot(
 root.render(
     // <React.StrictMode>
     <Provider store={store}>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
+        <ThemeProvider theme={theme}>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </ThemeProvider>
     </Provider>
     // </React.StrictMode>
 );
