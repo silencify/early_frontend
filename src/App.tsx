@@ -4,6 +4,7 @@ import './App.css';
 import {publicRoutes, restrictedRoutes} from 'routes';
 import { PublicRoutes, RestrictedRoutes } from 'routes/index.interface';
 import PermittedRoutes from 'routes/permittedRoutes';
+import MainLayout from 'layout/MainLayout';
 
 function App() {
     const token: string | null = localStorage.getItem('token');
@@ -34,6 +35,7 @@ function App() {
     }
 
     return (
+        <MainLayout>
             <Routes>
                 {
                     restrictedRoutes.map(({path, permission, Component}: RestrictedRoutes) => {
@@ -45,6 +47,7 @@ function App() {
                     }) 
                 }
             </Routes>
+        </MainLayout>
     )
 }
 

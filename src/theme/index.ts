@@ -1,6 +1,15 @@
 import { createTheme } from "@mui/material";
 
 const theme = createTheme({
+    components: {
+        MuiDivider: {
+            styleOverrides: {
+                root: {
+                    margin: '10px 0'
+                }
+            }
+        }
+    },
     palette: {
         mode: 'light',
         primary: {
@@ -15,7 +24,7 @@ const theme = createTheme({
             dark: '#524F7B',
             contrastText: '#ffffff'
         },
-    } 
+    },
 })
 
 export default theme;

@@ -1,4 +1,4 @@
-import { WButton, WTextField, WTypography } from 'components';
+import { WTextField, WTypography } from 'components';
 import LoginWrapper from './index.style';
 import actions from './store/actions';
 import { useDispatch, useSelector } from 'react-redux';

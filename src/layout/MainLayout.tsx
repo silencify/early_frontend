@@ -1,3 +1,5 @@
+import { WBox, WDrawer } from "components";
+
 interface MainLayoutProps {
     children: JSX.Element
 }
@@ -5,8 +7,12 @@ interface MainLayoutProps {
 const MainLayout = ({children}: MainLayoutProps): JSX.Element => {
     return (
         <div>
-            <p>Topbar</p>
-            {children}
+            <WBox sx={{ display: 'flex' }}>
+                <WDrawer/>
+            <WBox>
+                {children}
+            </WBox>
+            </WBox>
         </div>
     )
 }
